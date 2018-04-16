@@ -25,6 +25,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
     private FirebaseAuth mAuth;
     private Button signinButtton;
     private Button signupButtton;
+    private Button testbtn;
     private EditText mEmailField;
     private EditText mPasswordField;
     public ProgressDialog mProgressDialog;
@@ -36,14 +37,15 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         setContentView(R.layout.activity_home_page);
         mAuth = FirebaseAuth.getInstance();
 
-        signinButtton = (Button) findViewById(R.id.signin);
-        signupButtton = (Button) findViewById(R.id.signup);
-        mEmailField = (EditText) findViewById(R.id.emailData);
-        mPasswordField = (EditText) findViewById(R.id.passdata2);
+        signinButtton = findViewById(R.id.signin);
+        signupButtton = findViewById(R.id.signup);
+        mEmailField = findViewById(R.id.emailData);
+        mPasswordField = findViewById(R.id.passdata2);
 
 
         findViewById(R.id.signin).setOnClickListener(this);
         findViewById(R.id.signup).setOnClickListener(this);
+        //((int) R.drawable.common_google_signin_btn_icon_dark);
     }
 
     @Override
@@ -58,6 +60,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         Intent gohome = new Intent(this, navigation.class);
         startActivity(gohome);
     }
+
 
     private void createNewUser(String email,String password)
     {
@@ -149,11 +152,6 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener 
         } else if (i == R.id.signin) {
 
             signIn(mEmailField.getText().toString(), mPasswordField.getText().toString());
-
-        } else if (i == R.id.sign_out_button) {
-
-            signOut();
-
         }
 
     }
