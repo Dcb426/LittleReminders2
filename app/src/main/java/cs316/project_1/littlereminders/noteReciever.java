@@ -6,6 +6,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Handler;
+import android.support.v4.app.NotificationCompat;
 import android.telephony.SmsManager;
 import android.widget.Toast;
 
@@ -22,11 +23,10 @@ public class noteReciever extends BroadcastReceiver {
 
         Notification notification = intent.getParcelableExtra(NOTIFICATION);
 
-
         int id = intent.getIntExtra(NOTIFICATION_ID, 0);
         text = intent.getStringExtra(NOTIFICATION_TEXT);
 
-        nm.notify(id, notification);
+        nm.notify(id,notification);
 
         new Handler().postDelayed(new Runnable() {
             @Override
